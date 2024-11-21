@@ -4,7 +4,7 @@ from src.exceptions.FolderNotFoundException import FolderNotFoundException
 
 class Corpus:
     def __init__(self, filepath: str):
-        self.filepath = filepath if self._path_exists(filepath) else None
+        self.filepath = filepath if Corpus.path_exists(filepath) else None
 
     def emails(self):
         if not self.filepath:
@@ -13,5 +13,6 @@ class Corpus:
             with open(os.path.join(self.filepath, file), "rt", encoding="utf-8") as f:
                 yield file,f.read()
 
-    def _path_exists(self, filepath: str):
+    @staticmethod
+    def path_exists(filepath: str):
         return os.path.isdir(filepath)
