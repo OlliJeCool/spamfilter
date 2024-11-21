@@ -6,7 +6,7 @@ class BinaryConfusionMatrix:
     
     def as_dict(self):
         output = {}
-        for short in ("tp", "tn", "fp", "fn"):
+        for short in list(filter(lambda x: len(x) == 2, vars(self).keys())):
             output[short] = getattr(self, short)
         return output
 
@@ -26,3 +26,6 @@ class BinaryConfusionMatrix:
     def compute_from_dicts(self, truth_dict: dict, pred_dict: dict):
         for k in truth_dict.keys():
             self.update(truth_dict[k], pred_dict[k])
+
+temp = BinaryConfusionMatrix("a", "b")
+print(temp.as_dict())
