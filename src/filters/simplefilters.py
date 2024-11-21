@@ -16,7 +16,7 @@ class BaseFilter:
             raise FolderNotFoundException("Corpus directory does not exist!")
         corpus = Corpus(corpus_path)
         output = {}
-        for name in corpus.emails():
+        for name, _ in corpus.emails():
             output[name] = self.return_value
         write_classifictaion_to_file(os.path.join(corpus_path, "!prediction.txt"), output)
         
@@ -43,7 +43,7 @@ class RandomFilter(BaseFilter):
             raise FolderNotFoundException("Corpus directory does not exist!")
         corpus = Corpus(corpus_path)
         output = {}
-        for name in corpus.emails():
+        for name, _ in corpus.emails():
             output[name] = random.choice(self.return_value)
         write_classifictaion_to_file(os.path.join(corpus_path, "!prediction.txt"), output)       
 
