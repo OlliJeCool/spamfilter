@@ -14,4 +14,5 @@ class Corpus:
             raise FolderNotFoundException("Provided directory not found!")
         for file in list(filter(lambda x: not x.startswith("!") ,os.listdir(self.filepath))):
             with open(os.path.join(self.filepath, file), "rt", encoding="utf-8") as f:
-                yield file,f.read()
+                text = f.read()
+                yield file,text
