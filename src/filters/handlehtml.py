@@ -3,9 +3,8 @@ import re
 from src.corpus import Corpus
 
 # temp file name this is
-def handlehtml(path):
-    c = Corpus(path)
-    msg = email.message_from_string(next(c.emails())[1])
+def gettxt(data: str):
+    msg = email.message_from_string(data)
 
     # Initialize variables to store content
     plain_text = ""
