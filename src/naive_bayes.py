@@ -16,10 +16,10 @@ swear_words = [
 class NaiveBayes:
     def __init__(self):
         self.word_counts = {"SPAM": {}, "OK": {}}
-        self.total_words = {"SPAM": 0, "OK": 0}
-        self.doc_counts = {"SPAM": 0, "OK": 0}
+        self.total_words = {"SPAM": 1, "OK": 1}
+        self.doc_counts = {"SPAM": 1, "OK": 1}
         self.total_docs = 1
-        self.vocab_size = 0
+        self.vocab_size = 1
 
     def fit(self, label, text):
         self.doc_counts[label] += 1
@@ -43,11 +43,9 @@ class NaiveBayes:
         words = tokenizer.tokenize(input)
         spam_prob = math.log(self.doc_counts["SPAM"] / self.total_docs)
         ham_prob = math.log(self.doc_counts["OK"] / self.total_docs)
-
-        swear_word_found = False
+        
         for word in words:
             if word.lower() in swear_words:
-                swear_word_found = True
                 spam_prob += 5
 
             spam_prob += math.log(self.calculate_probability(word, "SPAM"))

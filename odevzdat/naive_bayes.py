@@ -44,10 +44,8 @@ class NaiveBayes:
         spam_prob = math.log(self.doc_counts["SPAM"] / self.total_docs)
         ham_prob = math.log(self.doc_counts["OK"] / self.total_docs)
 
-        swear_word_found = False
         for word in words:
             if word.lower() in swear_words:
-                swear_word_found = True
                 spam_prob += 5
 
             spam_prob += math.log(self.calculate_probability(word, "SPAM"))

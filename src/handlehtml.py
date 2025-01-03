@@ -30,7 +30,6 @@ def gettxt(data: str):
                 plain_text = part.get_payload(decode=True).decode(charset, 'ignore')
         except LookupError:
             # Handle unknown encodings gracefully
-            print(f"Unknown encoding: {charset}. Using utf-8 as fallback.")
             if content_type == "text/html":
                 html_content = part.get_payload(decode=True).decode('utf-8', 'ignore')
             elif content_type == "text/plain":
