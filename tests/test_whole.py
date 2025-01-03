@@ -1,4 +1,4 @@
-from src.filters.myfilter import MyFilter
+from src.filters.filter import MyFilter
 from src.quality import compute_quality_for_corpus
 from src.utils import read_classification_from_file
 

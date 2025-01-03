@@ -1,8 +1,8 @@
-from .basefilter import BaseFilter
-from src.naive_bayes import NaiveBayes
-from src.trainingcorpus import TrainingCorpus, Corpus
-from src.handlehtml import gettxt
-from src.utils import write_classification_to_file
+from basefilter import BaseFilter
+from naive_bayes import NaiveBayes
+from trainingcorpus import TrainingCorpus, Corpus
+from handlehtml import gettxt
+from utils import write_classification_to_file
 import os
 
 class MyFilter(BaseFilter):
