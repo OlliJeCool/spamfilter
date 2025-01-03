@@ -1,5 +1,6 @@
 import email
 import re
+from src.corpus import Corpus
 
 # temp file name this is
 def gettxt(data: str):
